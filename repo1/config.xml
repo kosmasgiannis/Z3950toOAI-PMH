@@ -1,0 +1,60 @@
+<oai_description>
+  <repositoryName>My Fine Repository</repositoryName>
+  <repositoryIdentifier>FineRepository</repositoryIdentifier>
+  <sampleIdentifier>oai:FineRepository:1</sampleIdentifier>
+  <adminEmail>nobody@example.com</adminEmail>
+  <granularity>YYYY-MM-DD</granularity>
+  <earliestDatestamp>1978-12-12</earliestDatestamp>
+  <deletedRecord>no</deletedRecord>
+  <enable_compression>false</enable_compression>
+<!--
+  <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+  <earliestDatestamp>1978-12-12T12:12:12Z</earliestDatestamp>
+-->
+<!--
+  <internal_date_format>Ymd</internal_date_format>
+-->
+  <max_items_per_request>100</max_items_per_request>
+  <z3950>
+    <zurl>127.0.0.1:210/pleiades</zurl>
+    <user></user>
+    <password></password>
+    <proxy></proxy>
+    <record_syntax>MARC21</record_syntax>
+    <element>F</element>
+    <query_charset>UTF-8</query_charset>
+    <record_charset>UTF-8</record_charset>
+    <recordid_searchquery>@attr 1=12</recordid_searchquery>
+    <recordid_xslt>../xsl/MARC21slim2id.xsl</recordid_xslt>
+    <datestamp_xslt>../xsl/MARC21slim2datestamp.xsl</datestamp_xslt>
+  </z3950>
+  <metadataFormats>
+    <metadataFormat>
+      <metadataPrefix>oai_dc</metadataPrefix>
+      <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>
+      <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>
+      <xslt>../xsl/MARC21slim2OAIDC.xsl</xslt>
+    </metadataFormat>
+    <metadataFormat>
+      <metadataPrefix>marc21</metadataPrefix>
+      <schema>http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd</schema>
+      <metadataNamespace>http://www.loc.gov/MARC21/slim</metadataNamespace>
+      <xslt>../xsl/MARC21slim2Identity.xsl</xslt>
+    </metadataFormat>
+  </metadataFormats>
+  <sets>
+    <set default="1">
+      <spec>default</spec>
+      <name>Default</name>
+      <description>Complete Repository</description>
+      <pqf>@not @attr 1=_ALLRECORDS @attr 2=103 0 @attr 1=12 0</pqf>
+      <!-- <pqf>@attr 1=12 @attr 4=109 @attr 2=5 1</pqf> --> <!-- all records with id greater than 1 -->
+    </set>
+    <set>
+      <spec>architecture</spec>
+      <name>Architecture Collection</name>
+      <description>Documents about architecture</description>
+      <pqf>@attr 1=21 architecture</pqf>
+    </set>
+  </sets>
+</oai_description>

@@ -1,0 +1,3 @@
+* Improve selection of records based on from/until requests.
+  (adjust queries against database instead of filtering retrieved records
+   from the whole result set)
