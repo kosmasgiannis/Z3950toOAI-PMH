@@ -84,6 +84,7 @@ function search_oai($target, $query, $number, $start) {
     $connection = z_search($target, $query);
     if (is_resource($connection)) {
         yaz_range($connection, $start, $number);
+        yaz_present($connection);
         $wait_opt = set_wait_options (30, FALSE);
         $yres = yaz_wait($wait_opt);
         if (yaz_errno($connection))
