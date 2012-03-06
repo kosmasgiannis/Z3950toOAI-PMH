@@ -463,6 +463,7 @@ function Identify () {
     global $enable_compression;
     global $granularity;
     global $earliestDatestamp;
+    global $oaiIdentifyDescriptions;
 
     $xml = '';   
     $xml .= "<Identify>\n";
@@ -489,6 +490,11 @@ END;
     $xml .= "<sampleIdentifier>$sampleIdentifier</sampleIdentifier>";
     $xml .= "</oai-identifier>";
     $xml .= "</description>";
+
+    foreach ($oaiIdentifyDescriptions as $idd) {
+      $xml .= $idd;
+    }
+
     $xml .= "</Identify>\n";
 
     return $xml;
@@ -608,6 +614,7 @@ global $sampleIdentifier;
 global $id_prefix;
 global $adminEmail;
 global $granularity;
+global $oaiIdentifyDescriptions = array();
 global $deletedRecord;
 global $oai_mps;
 global $max_items_per_request;
@@ -675,6 +682,13 @@ global $default_set;
           }
         }
 
+        $xpid = new DOMXPath($d);
+        $id_descr = $xpid->query("/oai_description/IdentifyDescriptions/description");
+        if ( isset($id_descr) ) {
+          foreach ($id_descr as $idd) {
+            $oaiIdentifyDescriptions[] = $d->saveXML($idd);
+          }
+        }
 
         $xp = new DOMXPath($d);
         $sets = $xp->query("/oai_description/sets/set");

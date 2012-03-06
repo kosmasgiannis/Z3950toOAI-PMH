@@ -7,6 +7,24 @@
   <earliestDatestamp>1978-12-12</earliestDatestamp>
   <deletedRecord>no</deletedRecord>
   <enable_compression>false</enable_compression>
+  <IdentifyDescriptions>
+    <description>
+      <eprints xmlns="http://www.openarchives.org/OAI/1.1/eprints" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/1.1/eprints http://www.openarchives.org/OAI/1.1/eprints.xsd">
+        <content>
+          <URL>http://www.example.com</URL>
+        </content>
+        <metadataPolicy>
+          <text>Free and unlimited use by anybody with obligation to refer to original record</text>
+        </metadataPolicy>
+        <dataPolicy>
+          <text>Full content may not be harvested by robots</text>
+        </dataPolicy>
+        <submissionPolicy>
+          <text>Submission restricted. Submitted documents are subject of approval by OAI repository admins.</text>
+        </submissionPolicy>
+      </eprints>
+    </description>
+  </IdentifyDescriptions>
 <!--
   <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
   <earliestDatestamp>1978-12-12T12:12:12Z</earliestDatestamp>
