@@ -1,3 +1,6 @@
+Z39.50toOAI-PMH
+===============
+
 Z39.50toOAI-PMH is a lightweight gateway that can be configured to handle 
 OAI-PMH requests in front of a set of Z39.50 servers.
 
